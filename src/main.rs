@@ -3,14 +3,14 @@ use::bevy::prelude::*;
 
 struct Player {
     name: String,
-    health: f32,
-    damage: f32,
+    health: i32,
+    damage: i32,
 }
 
-impl BaseStats for Player {
-    fn basestats() -> Self {
+impl Default for Player {
+    fn default() -> Self {
         Player {
-            name: "Player",
+            name: "Player".to_string(),
             health: 100,
             damage: 10,
         }
@@ -39,8 +39,7 @@ fn hello_world() {
 
 fn add_people(mut commands: Commands) {
     //Using Commands to spawn entities into the world.
-    commands.spawn().insert(Person).insert(Health("132".parse::<i32>().unwrap()));
-
+    commands.spawn().insert(Player).insert(health("50".parse::<i32>().unwrap()));
+    println()
 }
     
-}
